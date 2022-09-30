@@ -1,9 +1,16 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { deleteBook } from './BooksSlice';
 
 const ViewBooks = () => {
     const books = useSelector((state) => state.booksReducer.books)
     console.log(books);
+    const dispatch = useDispatch()
+    const handleDeleteBook = (id) => {
+        dispatch(deleteBook(id))
+
+    }
     return (
         <div className='container mx-auto' >
             <div className="overflow-x-auto">
@@ -25,8 +32,15 @@ const ViewBooks = () => {
                                     <td>{id}</td>
                                     <td>{title}</td>
                                     <td>{author}</td>
-                                    <td><button className="btn btn-success mr-2">Edit</button>
-                                        <button className="btn btn-error">Delete</button></td>
+                                    <td>
+                                        <Link to="/update-book-info" className="btn btn-success mr-2" state={{ id, title, author }}>
+                                            Update
+                                        </Link>
+                                        <button className="btn btn-error" onClick={
+                                            () => {
+                                                handleDeleteBook(id)
+                                            }
+                                        }>Delete</button></td>
                                 </tr>
                             })
                         }
