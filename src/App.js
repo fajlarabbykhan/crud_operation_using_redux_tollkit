@@ -10,7 +10,7 @@ function App() {
   return (
 
     <Routes>
-      <Route path="/" element={<Home />}></Route>
+      {/* <Route path="/" element={<Home />}></Route> */}
       <Route path="/showbooks" element={<ViewBooks />}></Route>
       <Route path="/addbook" element={<AddBooks />}></Route>
       <Route path="/update-book-info" element={<EditBook />}></Route>
