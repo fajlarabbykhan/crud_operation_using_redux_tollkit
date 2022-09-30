@@ -20,7 +20,7 @@ const EditBook = () => {
 
     }
     return (
-        <div className='mt-10  grid justify-items-center'>
+        <div className='mt-4  grid justify-items-center'>
             <form className="w-full max-w-sm" onSubmit={handleSubmit} >
                 <div className="md:flex md:items-center mb-6">
                     <div className="md:w-1/3">
